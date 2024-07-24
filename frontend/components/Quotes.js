@@ -1,9 +1,11 @@
-import React from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import React from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import {
   setHighlightedQuote,
   toggleVisibility,
-} from '../state/quotesSlice'
+} from '../state/quotesSlice';
+import { useGetQuotesQuery } from '../state/quotesApi';
+
 
 export default function Quotes() {
   const quotes = [
