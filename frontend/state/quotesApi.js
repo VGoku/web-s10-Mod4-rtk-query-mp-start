@@ -19,11 +19,20 @@ export const quotesApi = createApi({
             }),
             invalidatesTags: ["Quotes"],
         }),
-        toggleQuote: builder.mutation({
-
+        toggleFake: builder.mutation({
+            query: ({ id, quote }) => ({
+                url: `quotes/${id}`,
+                method: "PUT",
+                body: quote,
+            }),
+            invalidatesTags: ["Quotes"],
         }),
         deleteQuote: builder.mutation({
-
+            query: id => ({
+                url: `quotes/${id}`,
+                method: "DELETE",
+            }),
+            invalidatesTags: ["Quotes"],
         })
     })
 })
@@ -31,6 +40,6 @@ export const quotesApi = createApi({
 export const {
     useGetQuotesQuery,
     useCreateQuoteMutation,
-    useToggleQuoteMutation,
+    useToggleFakeMutation,
     useDeleteQuoteMutation,
   } = quotesApi;
